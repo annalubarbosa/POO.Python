@@ -1,9 +1,3 @@
-from abc import ABC, abstractmethod 
-#from <módulo> import <nome>
-# módulo: nome do módulo ou pacote que você irá importar
-#nome: nome da função, classe, variável o submódulo que deseja impportar
-# import : React from react
-
 '''Classe abstrata: classe que não pode ser instanciada diretamente
 (não consigo criar) objetos diretamete nela. Definimos regras que devem ser obedecidas'''
 
@@ -20,7 +14,14 @@ class Curso(ABC):
     @abstractmethod   
     def info_curso(self):
         pass # é uma espécie de break da função
- #Curso Específico   
+    
+    def info_alunos(self): #Curso Específico
+        print (f"Alunos inscritos no curso de {self.nome}")   
+        for aluno in self.alunos:
+            print(f"- {aluno}")
+        
+        
+        
 class CursoMatematica(Curso):
     def info_curso(self):
       print(f"Curso de {self.nome}: Foco em Álgebra e Geometria")
@@ -40,3 +41,10 @@ curso1.info_curso()
 
 curso2.inscrever_alunos("Anna Luiza")
 curso2.info_curso()
+
+curso1.info_alunos()
+curso2.info_alunos()
+
+# criar função info_alunos
+
+        
